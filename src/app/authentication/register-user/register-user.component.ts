@@ -2,7 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { UserForRegistrationDto } from  './../../models/user-for-registration-dto'; 
 import { AuthenticationService } from './../../shared/services/authentication.service';
-import { FormControl, FormGroup, Validators , ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, FormControl, FormGroup, Validators,ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-register-user',
@@ -10,22 +10,29 @@ import { FormControl, FormGroup, Validators , ReactiveFormsModule } from '@angul
   styleUrls: ['./register-user.component.css']
 })
 export class RegisterUserComponent implements OnInit {
-  registerForm: FormGroup | undefined;
+  public registerForm: FormGroup;
 
-  constructor(private authService: AuthenticationService) { }
+
+
+  constructor(private authService: AuthenticationService) 
+  { 
+    this.registerForm= new FormGroup ({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required]),
+    confirm: new FormControl('')   });
+  }
 
   ngOnInit(): void {
-    this.registerForm = new FormGroup({
-      firstName: new FormControl(''),
-      lastName: new FormControl(''),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required]),
-      confirm: new FormControl('')
-    });
   }
 
   public validateControl = (controlName: string) => {
-    return this.registerForm.get(controlName).invalid && this.registerForm.get(controlName).touched
+    if(this.registerForm.get(controlName))
+      {
+        return this.registerForm.get(controlName).invalid && this.registerForm.get(controlName).touched
+
+      }
   }
 
   public hasError = (controlName: string, errorName: string) => {

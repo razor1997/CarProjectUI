@@ -16,7 +16,7 @@ import { RegisterUserComponent } from './authentication/register-user/register-u
   declarations: [
     AppComponent,
     NavbarComponent,
-    RegisterComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -32,8 +32,7 @@ import { RegisterUserComponent } from './authentication/register-user/register-u
   ],
   exports: [
     CommonModule,
-    FormsModule,
-    ReactiveFormsModule
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
