@@ -27,16 +27,12 @@ export class RegisterUserComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public validateControl = (controlName: string) => {
-    if(this.registerForm.get(controlName))
-      {
-        return this.registerForm.get(controlName).invalid && this.registerForm.get(controlName).touched
-
-      }
+  public validateControl = (controlName: string ) => {
+    return this.registerForm.get(controlName)!.invalid && this.registerForm.get(controlName)!.touched
   }
 
   public hasError = (controlName: string, errorName: string) => {
-    return this.registerForm.get(controlName).hasError(errorName)
+    return this.registerForm.get(controlName)!.hasError(errorName)
   }
 
   public registerUser = (registerFormValue: any) => {
