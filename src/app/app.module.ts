@@ -28,6 +28,7 @@ import { RegisterUserComponent } from './authentication/register-user/register-u
     CommonModule,
     RouterModule.forChild([
       { path: 'register', component: RegisterUserComponent },
+      { path: 'authentication', loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule) },
     ])
   ],
   exports: [
