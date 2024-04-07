@@ -11,6 +11,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { RegisterUserComponent } from './authentication/register-user/register-user.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { RegisterUserComponent } from './authentication/register-user/register-u
     RegisterComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -27,7 +30,6 @@ import { RegisterUserComponent } from './authentication/register-user/register-u
     ReactiveFormsModule,
     CommonModule,
     RouterModule.forChild([
-      { path: 'register', component: RegisterUserComponent },
       { path: 'authentication', loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule) },
     ])
   ],
