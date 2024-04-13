@@ -34,15 +34,15 @@ export class RegisterUserComponent implements OnInit {
   public hasError = (controlName: string, errorName: string) => {
     return this.registerForm.get(controlName)!.hasError(errorName)
   }
-
+  public passwordsEqual = () => {
+    return this.registerForm.get('confirm')?.value === this.registerForm.get('password')?.value
+  }
   public registerUser = (registerFormValue: any) => {
     const formValues = { ...registerFormValue };
-
     const user: UserForRegistrationDto = {
       userName: formValues.firstName,
       email: formValues.email,
       password: formValues.password,
-      // confirmPassword: formValues.confirm,
       phoneNumber: "",
       carPreferences: 1
     };
