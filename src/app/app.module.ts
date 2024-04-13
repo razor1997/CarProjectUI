@@ -12,13 +12,15 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { RegisterUserComponent } from './authentication/register-user/register-user.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UserForLoginDtoComponent } from './models/user-for-login-dto/user-for-login-dto.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    RegisterComponent
+    RegisterComponent,
+    UserForLoginDtoComponent,
   ],
   imports: [
     HttpClientModule,

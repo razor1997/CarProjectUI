@@ -3,14 +3,18 @@ import { CommonModule } from '@angular/common';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginUserComponent } from './login-user/login-user.component';
 
 @NgModule({
-  declarations: [RegisterUserComponent],
+  declarations: [RegisterUserComponent, LoginUserComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     RouterModule.forChild([
       { path: 'register', component: RegisterUserComponent },
+      { path: 'login', component: LoginUserComponent }
+      
+
     ])
   ]
 })

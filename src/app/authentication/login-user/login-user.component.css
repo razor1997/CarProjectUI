@@ -1,0 +1,14 @@
+body{
+    width: 300px;
+}
+.card-body {
+    display: grid;
+    justify-content: center;
+    /* align-items: center;
+    flex-direction: column; */
+    width: auto;
+  }
+.card-header {
+    justify-content: center;
+    text-align: center;
+}

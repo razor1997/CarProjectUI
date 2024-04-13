@@ -2,7 +2,7 @@
         <div class="card-body">
             <h1 class="card-title">Register</h1>
             <form [formGroup]="registerForm" autocomplete="off" novalidate (ngSubmit)="registerUser(registerForm.value)">
-                <div class="mb-3 row">
+                <div class="mb-3">
                     <label for="firstName" class="col-form-label col-sm-5">First Name:</label>
                     <div class="col-md-10">
                         <input type="text" id="firstName" formControlName="firstName" class="form-control" />
@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <br>
-                <div class="mb-3 row">
+                <div class="mb-3">
                     <div class="col-md-1">          
                         <button type="submit" class="btn btn-info" [disabled]="!registerForm.valid || !passwordsEqual()">Register</button>
                     </div>
