@@ -42,12 +42,12 @@ export class RegisterUserComponent implements OnInit {
       userName: formValues.firstName,
       email: formValues.email,
       password: formValues.password,
-      confirmPassword: formValues.confirm,
+      // confirmPassword: formValues.confirm,
       phoneNumber: "",
-      carPreferences: ""
+      carPreferences: 1
     };
 
-    this.authService.registerUser("api/accounts/registration", user)
+    this.authService.registerUser("api/accounts/Registration", user)
     .subscribe({
       next: (_) => console.log("Successful registration"),
       error: (err: HttpErrorResponse) => console.log(err.error.errors)
