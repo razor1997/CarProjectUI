@@ -18,8 +18,14 @@
                     <div *ngIf="f.password.errors.required">Password is required</div>
                 </div>
             </div>
+            <div class="mb-3">
+                <div>      
+                    <label class="checkbox" >Remember me</label>
+                    <input type="checkbox" aria-label="lorem ipsum" formControlName="rememberMe" class="checkbox">
+                </div>
+            </div>
             <div>
-                <button [disabled]="loading" class="btn btn-primary">
+                <button type="Submit" [disabled]="loading" class="btn btn-primary" >
                     <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
                     Login
                 </button>
