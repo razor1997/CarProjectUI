@@ -11,12 +11,14 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { RegisterUserComponent } from './authentication/register-user/register-user.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UserSettingsComponent } from './components/user-settings/user-settings.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    UserSettingsComponent
   ],
   imports: [
     HttpClientModule,

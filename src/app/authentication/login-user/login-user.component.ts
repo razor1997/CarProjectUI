@@ -54,7 +54,7 @@ public onSubmit(){
     .pipe(first()) 
     .subscribe({
       next: () => {
-        const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+        const returnUrl = this.route.snapshot.queryParams['userSettings'] || '/';
         this.router.navigateByUrl(returnUrl)
       },
       error: error => {
@@ -62,5 +62,7 @@ public onSubmit(){
           this.loading = false;
       }
     })
+    const returnUrl = this.route.snapshot.queryParams['userSettings'];// || '/';
+    this.router.navigateByUrl(returnUrl)
 }
 }
