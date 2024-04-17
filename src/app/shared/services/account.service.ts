@@ -2,10 +2,12 @@ import { Injectable } from '@angular/core';
 import { RegistrationResponseDto } from 'src/app/models/registration-response-dto';
 import { UserForLogiDto } from 'src/app/models/user-for-login-dto';
 import { UserForRegistrationDto } from 'src/app/models/user-for-registration-dto';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { EnvironmentUrlService } from './environment-url.service';
 import { BehaviorSubject, Observable, map } from 'rxjs';
 import { Router } from '@angular/router';
+import { AuthenticationService } from './authentication.service';
+import { AuthResponseDto } from 'src/app/models/auth-response-dto';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,6 +18,7 @@ export class AccountService {
   constructor(private http: HttpClient, 
     private envUrl: EnvironmentUrlService,  
     private router: Router,
+    private authService: AuthenticationService
   ) 
   { 
     this.userSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('user')!)); 
@@ -24,15 +27,9 @@ export class AccountService {
   registerUser = (route: string, user: UserForRegistrationDto) => {
     return this.http.post(`${this.envUrl.urlAddress}accounts/register`, user);
   }
-  login(user:UserForLogiDto)
+  login = (user:UserForLogiDto) =>
   {
-    return this.http.post<UserForLogiDto>(`${this.envUrl.urlAddress}/api/accounts/login`,  user )
-    .pipe(map(user => {
-        // store user details and jwt token in local storage to keep user logged in between page refreshes
-        localStorage.setItem('user', JSON.stringify(user));
-        this.userSubject.next(user);
-        return user;
-    }));
+    return this.http.post<AuthResponseDto>(`${this.envUrl.urlAddress}/api/accounts/login`,  user ) 
   }
   logout() {
     // remove user from local storage and set current user to null

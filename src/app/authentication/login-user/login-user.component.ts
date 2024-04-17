@@ -7,6 +7,7 @@ import { AccountService } from 'src/app/shared/services/account.service';
 import { UserForLogiDto } from 'src/app/models/user-for-login-dto';
 import { first } from 'rxjs';
 import { ActivatedRoute, Route, Router } from '@angular/router';
+import { AuthResponseDto } from 'src/app/models/auth-response-dto';
 
 @Component({
   selector: 'app-login-user',
@@ -17,6 +18,8 @@ export class LoginUserComponent implements OnInit{
   form!: FormGroup;
   loading = false;
   submitted = false;
+  errorMessage: string = '';
+  showError: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -24,6 +27,7 @@ export class LoginUserComponent implements OnInit{
     private accountService: AccountService,  
     private route: ActivatedRoute,
     private router: Router,
+    private authService: AuthenticationService
   ){
     
   }
@@ -36,7 +40,7 @@ export class LoginUserComponent implements OnInit{
 }
 get f() { return this.form.controls; }
 
-public onSubmit(){
+public onSubmit = () => {
   this.warningService.clear();
 
   // if(this.form.invalid){
@@ -44,25 +48,23 @@ public onSubmit(){
   // }
   console.log("huj");
   this.loading = true;
-  let user: UserForLogiDto = {
+  const user: UserForLogiDto = {
     userName: this.f.username.value ,
     passwordHash: this.f.password.value,
     rememberMe: this.f.rememberMe.value
   };
 
   this.accountService.login(user)
-    .pipe(first()) 
     .subscribe({
-      next: () => {
-        const returnUrl = this.route.snapshot.queryParams['userSettings'] || '/';
-        this.router.navigateByUrl(returnUrl)
+      next: (res:AuthResponseDto) => {
+        localStorage.setItem('token', res.token);
+        this.router.navigateByUrl('userSettings')
+        this.authService.sendAuthStateChangeNotification(res.isAuthSuccessful);
       },
       error: error => {
           // this.warningService.error(error);
           this.loading = false;
       }
     })
-    const returnUrl = this.route.snapshot.queryParams['userSettings'];// || '/';
-    this.router.navigateByUrl(returnUrl)
 }
 }
