@@ -10,29 +10,28 @@
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/login']">Zaloguj</a>
         </li> 
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/userCars']">Auta użytkowników</a>
+        </li> 
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/generalCars']">Szukaj auta</a>
+        </li> 
       </ul>
     </div>
     <div>
-        <ul class="navbar-nav">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Ustawienia użytkownika
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Categories</a></li>
-                <li><a class="dropdown-item" href="#">AI Devs Tasks</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">BlogPosts</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li>
-          </ul>  
-          <ul *ngIf='isUserAuthenticated' class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item">
-              <button class="btn btn-link" style="color: #ffffff80;">Logout</button>
-            </li>
-          </ul>  
+      <button mat-icon-button matTooltip="Info about the action" aria-label="Button that displays a tooltip when focused or hovered over">
+        <!-- <mat-icon>info</mat-icon> -->
+      </button>  
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Ustawienia użytkownika</mat-label>
+        <mat-select (selectionChange)="onSelectionChange($event)">
+          <mat-option value="addVehicle">Dodaj auto</mat-option>
+          <mat-option value="userSettings">Ustawienia</mat-option>
+          <mat-option value="logout">Wyloguj</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>  
   </div>
   </nav>

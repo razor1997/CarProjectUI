@@ -1,5 +1,5 @@
 export interface UserForLogiDto {
-    userName: String;
-    passwordHash: String;
+    userName: string;
+    passwordHash: string;
     rememberMe: Boolean
 }

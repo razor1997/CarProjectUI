@@ -62,7 +62,7 @@ public onSubmit = () => {
         this.authService.sendAuthStateChangeNotification(res.isAuthSuccessful);
       },
       error: error => {
-          // this.warningService.error(error);
+        // this.errorMessage = err.message;
           this.loading = false;
       }
     })
