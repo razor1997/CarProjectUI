@@ -1,11 +1,28 @@
-<ul *ngFor="let car of userCars">
-    <li>
-      <h2>{{ car.brand }} {{ car.model }}</h2> <!-- Car brand and model -->
-      <p><strong>Buy Price:</strong> {{ car.buyPrice }}</p> <!-- Buy Price -->
-      <p><strong>Body Type:</strong> {{ car.bodyType }}</p> <!-- Body Type -->
-      <p><strong>Year of Production:</strong> {{ car.yearProduction }}</p> <!-- Year of Production -->
-      <p><strong>Mileage:</strong> {{ car.mileage }}</p> <!-- Mileage -->
-      <p><strong>Engine Capacity:</strong> {{ car.engineCapacity }}</p> <!-- Engine Capacity -->
-      <p><strong>Owner Name:</strong> {{ car.ownerName }}</p> <!-- Owner's Name -->
-    </li>
-  </ul>
+<div class="container">
+  <table class="table table-striped">
+      <thead>
+          <tr>
+              <th>Brand</th>
+              <th>Model</th>
+              <th>Buy Price</th>
+              <th>Body Type</th>
+              <th>Year of Production</th>
+              <th>Mileage</th>
+              <th>Engine Capacity</th>
+              <th>Owner Name</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let car of userCars">
+              <td>{{ car.brand }}</td>
+              <td>{{ car.model }}</td>
+              <td>{{ car.buyPrice }}</td>
+              <td>{{ car.bodyType }}</td>
+              <td>{{ car.yearProduction }}</td>
+              <td>{{ car.mileage }}</td>
+              <td>{{ car.engineCapacity }}</td>
+              <td>{{ car.ownerName }}</td>
+          </tr>
+      </tbody>
+  </table>
+</div>
