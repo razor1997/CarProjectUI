@@ -19,16 +19,13 @@
       </ul>
     </div>
     <div>
-      <button mat-icon-button matTooltip="Info about the action" aria-label="Button that displays a tooltip when focused or hovered over">
-        <!-- <mat-icon>info</mat-icon> -->
-      </button>  
     </div>
     <div>
       <mat-form-field appearance="fill">
         <mat-label>Ustawienia użytkownika</mat-label>
         <mat-select (selectionChange)="onSelectionChange($event)">
-          <mat-option value="addVehicle">Dodaj auto</mat-option>
-          <mat-option value="userSettings">Ustawienia</mat-option>
+          <mat-option value="addVehicle">Dodaj pojazd</mat-option>
+          <mat-option value="userSettings">Ustawienia użytkownika</mat-option>
           <mat-option value="logout">Wyloguj</mat-option>
         </mat-select>
       </mat-form-field>

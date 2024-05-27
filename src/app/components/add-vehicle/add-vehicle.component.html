@@ -1,23 +1,23 @@
 <div class="container">
-    <div class="car-form">
+    <div class="addCarForm">
       <h1 class="title">Dodaj pojazd</h1>
       
-      <form>
+      <form [formGroup]="addCarForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label for="brand">Marka:</label>
           <select id="brand" name="brand" class="form-control">
-          <option value="BMW">BMW</option>
-          <option value="Audi">Audi</option>
-          <option value="Mercedes-Benz">Mercedes-Benz</option>          
+          <option value="BMW" id="1">BMW</option>
+          <option value="Mercedes-Benz" id="2">Mercedes-Benz</option>    
+          <option value="Audi" id="3">Audi</option>      
         </select>
         </div>
         
         <div class="form-group">
           <label for="model">Model:</label>
           <select id="model" name="model" class="form-control">
-            <option value="series5">Seria 5</option>
-            <option value="A6">A6</option>
-            <option value="eclass">Klasa E</option>
+            <option value="series5" id="5">Seria 5</option>
+            <option value="A6" id="5">A6</option>
+            <option value="e-class" id="5">Klasa E</option>
           </select>
         </div>
         
@@ -31,7 +31,7 @@
           <input type="text" id="type" name="type" class="form-control">
         </div>
         
-        <button type="submit" class="btn btn-primary">Add Car</button>
+        <button type="submit" class="btn btn-primary"  >Add Car</button>
       </form>
     </div>
   </div>
