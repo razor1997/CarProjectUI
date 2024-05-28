@@ -40,7 +40,7 @@ export class addVehicleComponent {
         engineCapacity: 1,
         typeVehicle: 1
       };
-       this.userCarsService.add(vehicle);    
+       this.userCarsService.add(vehicle).subscribe(dto => vehicle);    
     }
   }
 }
