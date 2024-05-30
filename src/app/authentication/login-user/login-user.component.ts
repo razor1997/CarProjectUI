@@ -51,7 +51,8 @@ public onSubmit = () => {
   const user: UserForLogiDto = {
     userName: this.f.username.value ,
     passwordHash: this.f.password.value,
-    rememberMe: this.f.rememberMe.value
+    rememberMe: this.f.rememberMe.value,
+    userId: this.f.rememberMe.value
   };
 
   this.accountService.login(user)
@@ -60,6 +61,7 @@ public onSubmit = () => {
         localStorage.setItem('token', res.token);
         this.router.navigateByUrl('userSettings')
         this.authService.sendAuthStateChangeNotification(res.isAuthSuccessful);
+        this.accountService.setUserId(res.userId)
       },
       error: error => {
         // this.errorMessage = err.message;

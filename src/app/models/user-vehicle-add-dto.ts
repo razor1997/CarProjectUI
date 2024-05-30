@@ -4,7 +4,7 @@ export function guid(guid: string) : GUID {
 };
 export interface UserVehicleAddDto {
     id: GUID;
-    userId: GUID;
+    userId: string;
     vehicleId: GUID;
     buyPrice: Number;
     bodyType: Number;
