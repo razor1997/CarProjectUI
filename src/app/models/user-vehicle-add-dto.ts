@@ -3,9 +3,9 @@ export function guid(guid: string) : GUID {
     return  guid as GUID; // maybe add validation that the parameter is an actual guid ?
 };
 export interface UserVehicleAddDto {
-    id: GUID;
     userId: string;
-    vehicleId: GUID;
+    brandId: number;
+    modelId: number;
     buyPrice: Number;
     bodyType: Number;
     yearProduction: Number;

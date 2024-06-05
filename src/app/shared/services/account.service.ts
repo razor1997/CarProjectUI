@@ -28,15 +28,16 @@ export class AccountService {
   registerUser = (route: string, user: UserForRegistrationDto) => {
     return this.http.post(`${this.envUrl.urlAddress}accounts/register`, user);
   }
-  getUserId(): Observable<string | null> {
-    return this.user.pipe(
-      // Extract the userId if the user object is not null
-      map(userData => userData ? userData.userId : null),
-      catchError(error => {
-        console.error('Error occurred:', error);
-        return of(''); // Return empty string if there is an error or userId is null
-      })
-    );
+  getUserId(): string  {
+    return this.userId;
+    // return this.user.pipe(
+    //   // Extract the userId if the user object is not null
+    //   map(userData => userData ? userData.userId : null),
+    //   catchError(error => {
+    //     console.error('Error occurred:', error);
+    //     return of(''); // Return empty string if there is an error or userId is null
+    //   })
+    // );
   };
   setUserId(userId: string){
     this.userId = userId;
