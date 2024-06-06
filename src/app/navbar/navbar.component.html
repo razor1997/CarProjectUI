@@ -1,34 +1,39 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
-    <a class="navbar-brand" href="#">Twoja Strona</a>
-    
+    <a class="navbar-brand" href="#">Strona główna</a> 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav  me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Aktualności</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/login']">Zaloguj</a>
-        </li> 
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/userCars']">Auta użytkowników</a>
-        </li> 
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/generalCars']">Szukaj auta</a>
-        </li> 
+        <div *ngIf="getUserIsAuthenticated() === false">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/login']">Zaloguj</a>
+          </li> 
+        </div>
+        <div *ngIf="getUserIsAuthenticated() === true">      
+          <ul class="navbar-nav  me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Aktualności</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/userCars']">Auta użytkowników</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/generalCars']">Szukaj auta</a>
+            </li>            
+          </ul>
+        </div>
       </ul>
     </div>
     <div>
     </div>
-    <div>
-      <mat-form-field appearance="fill">
-        <mat-label>Ustawienia użytkownika</mat-label>
-        <mat-select (selectionChange)="onSelectionChange($event)">
-          <mat-option value="addVehicle">Dodaj pojazd</mat-option>
-          <mat-option value="userSettings">Ustawienia użytkownika</mat-option>
-          <mat-option value="logout">Wyloguj</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>  
-  </div>
+      <div *ngIf="getUserIsAuthenticated() === true">
+        <mat-form-field appearance="fill">
+          <mat-label>Ustawienia użytkownika</mat-label>
+          <mat-select (selectionChange)="onSelectionChange($event)">
+            <mat-option value="addVehicle">Dodaj pojazd</mat-option>
+            <mat-option value="userSettings">Ustawienia użytkownika</mat-option>
+            <mat-option value="logout">Wyloguj</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>  
+    </div>
   </nav>

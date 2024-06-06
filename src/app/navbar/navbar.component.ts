@@ -18,6 +18,14 @@ export class NavbarComponent {
   onSelectionChange(event: any) {
     this.router.navigate(['/' + event.value]);
   }
+  getUserIsAuthenticated()
+  {
+    return this.authService.isUserAuthenticated();
+  }
+  logout()
+  {
+    this.authService.
+  }
   ngOnInit(): void {
     this.authService.authChanged
     .subscribe(res => {

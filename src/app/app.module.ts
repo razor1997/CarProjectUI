@@ -15,6 +15,8 @@ import { UserSettingsComponent } from './components/user-settings/user-settings.
 import { UserCarsComponent } from './components/user-cars/user-cars.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { addVehicleComponent } from './components/add-vehicle/add-vehicle.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
+import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { addVehicleComponent } from './components/add-vehicle/add-vehicle.compon
     NavbarComponent,
     UserSettingsComponent,
     UserCarsComponent,
-    addVehicleComponent
+    addVehicleComponent,
+    HomepageComponent
   ],
   imports: [
     HttpClientModule,
@@ -42,7 +45,9 @@ import { addVehicleComponent } from './components/add-vehicle/add-vehicle.compon
     CommonModule,
     FormsModule
   ],
-  providers: [],
+  providers: [  { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService],
   bootstrap: [AppComponent],
+  
 })
 export class AppModule { }

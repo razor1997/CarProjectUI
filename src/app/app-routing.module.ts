@@ -5,8 +5,10 @@ import { LoginUserComponent } from './authentication/login-user/login-user.compo
 import { UserSettingsComponent } from './components/user-settings/user-settings.component';
 import { UserCarsComponent } from './components/user-cars/user-cars.component';
 import { addVehicleComponent } from './components/add-vehicle/add-vehicle.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 const routes: Routes = [
+  { path: '', component: HomepageComponent },
   { path: 'register', component: RegisterUserComponent },
   { path: 'login', component: LoginUserComponent }, 
   {path: 'userSettings', component: UserSettingsComponent},
