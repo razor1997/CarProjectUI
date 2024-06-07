@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserVehicleAddDto, GUID, guid } from 'src/app/models/user-vehicle-add-dto';
 import { AccountService } from 'src/app/shared/services/account.service';
 import { UserCarsService} from 'src/app/shared/services/user-cars.service';
@@ -10,42 +11,70 @@ import { UserCarsService} from 'src/app/shared/services/user-cars.service';
   styleUrls: ['./add-vehicle.component.css']
 })
 export class addVehicleComponent {
+  @ViewChild('brandSelect')
+  brandSelect!: ElementRef;
+  @ViewChild('modelSelect')
+  modelSelect!: ElementRef;
+  @ViewChild('mileage') 
+  mileage!: ElementRef;
+  @ViewChild('yearSelect') 
+  yearSelect!: ElementRef;
+  years: number[] = Array.from({ length: 40 }, (_, i) => new Date().getFullYear() - i);
+  @ViewChild('buyPrice') 
+  buyPrice!: ElementRef;
+
   userId: string;
   addCarForm: FormGroup;
+  submitted: boolean;
+
   constructor(private userCarsService: UserCarsService,
             private formBuilder: FormBuilder,
-            private accountService: AccountService)
+            private accountService: AccountService,
+            private router: Router,)
   {
     this.userId = "";
+    this.submitted = false;
     this.addCarForm = this.formBuilder.group({
-      brandId: [''],
-      modelId: [''],
-      mileage: ['']
+      mileage: ['1000', Validators.required],
+      buyPrice:['1000', Validators.required],
     });
   }
+  get f() { return this.addCarForm.controls; }
 
+  getSelectedBrandIdentifier(): number{
+    const selectedOption = this.brandSelect.nativeElement.options[this.brandSelect.nativeElement.selectedIndex];
+    return selectedOption.getAttribute('id');
+  }
+  getSelectedModelIdentifier(): number{
+    const selectedOption = this.modelSelect.nativeElement.options[this.modelSelect.nativeElement.selectedIndex];
+    return selectedOption.getAttribute('id');
+  }
+  getYearProduction(): number{
+    const selectedOption = this.yearSelect.nativeElement.options[this.yearSelect.nativeElement.selectedIndex];
+    return this.yearSelect.nativeElement.value;
+  }
 
   onSubmit()
   {
+    this.submitted = true;
     if (this.addCarForm.valid) {
-      
-      const brandId = this.addCarForm.get('brandId')?.value; // Użyj operatora "?" do bezpiecznego dostępu
-      const modelId = this.addCarForm.get('modelId')?.value;
-      const mileage = this.addCarForm.get('mileage')?.value;
-      this.userId = this.accountService.getUserId();
       const vehicle: UserVehicleAddDto =
       {
-        userId: this.userId,
-        brandId: 1,
-        modelId: 1,
-        buyPrice: 1,
+        userId: this.accountService.getUserId(),
+        brandId: this.getSelectedBrandIdentifier(),
+        modelId: this.getSelectedModelIdentifier(),
+        buyPrice: this.buyPrice.nativeElement.value,
         bodyType: 1,
-        yearProduction: 1,
-        mileage: 1,
+        yearProduction: this.getYearProduction(),
+        mileage: this.mileage.nativeElement.value,
         engineCapacity: 1,
         typeVehicle: 1
       };
-       this.userCarsService.add(vehicle).subscribe(dto => vehicle);    
+      if(this.userCarsService.add(vehicle).subscribe(dto => vehicle))
+      {
+        this.router.navigateByUrl('userCars')
+        }
+        this.submitted = false;
     }
   }
 }

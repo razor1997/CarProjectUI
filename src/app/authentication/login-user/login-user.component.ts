@@ -42,11 +42,10 @@ get f() { return this.form.controls; }
 
 public onSubmit = () => {
   this.warningService.clear();
-
-  // if(this.form.invalid){
-  //   return;
-  // }
-  console.log("huj");
+  this.submitted = true;
+  if(this.form.invalid){
+    return;
+  }
   this.loading = true;
   const user: UserForLogiDto = {
     userName: this.f.username.value ,
@@ -64,7 +63,7 @@ public onSubmit = () => {
         this.accountService.setUserId(res.userId)
       },
       error: error => {
-        // this.errorMessage = err.message;
+         this.errorMessage = error.message;
           this.loading = false;
       }
     })

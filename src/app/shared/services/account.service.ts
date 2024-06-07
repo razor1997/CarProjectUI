@@ -30,14 +30,6 @@ export class AccountService {
   }
   getUserId(): string  {
     return this.userId;
-    // return this.user.pipe(
-    //   // Extract the userId if the user object is not null
-    //   map(userData => userData ? userData.userId : null),
-    //   catchError(error => {
-    //     console.error('Error occurred:', error);
-    //     return of(''); // Return empty string if there is an error or userId is null
-    //   })
-    // );
   };
   setUserId(userId: string){
     this.userId = userId;
@@ -50,8 +42,8 @@ export class AccountService {
   }
   logout() {
     // remove user from local storage and set current user to null
-    localStorage.removeItem('user');
+    localStorage.removeItem('token');
     this.userSubject.next(null);
-    // this.router.navigate(['/account/login']);
+    this.router.navigate(['/login']);
 }
 }
