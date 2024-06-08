@@ -17,6 +17,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { addVehicleComponent } from './components/add-vehicle/add-vehicle.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
     UserSettingsComponent,
     UserCarsComponent,
     addVehicleComponent,
-    HomepageComponent
+    HomepageComponent,
+    FooterComponent
   ],
   imports: [
     HttpClientModule,
