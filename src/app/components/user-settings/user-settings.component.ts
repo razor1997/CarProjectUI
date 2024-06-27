@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {  AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { UserForLogiDto } from 'src/app/models/user-for-login-dto';
+import { GUID } from 'src/app/models/user-vehicle-add-dto';
+import { UserEditSettingsDto } from 'src/app/models/user/user-settings-edit-dto';
 import { AccountService } from 'src/app/shared/services/account.service';
+import { UserEditService } from 'src/app/shared/services/user-edit.service';
 
 @Component({
   selector: 'app-user-settings',
@@ -13,7 +16,7 @@ export class UserSettingsComponent implements OnInit {
   user: UserForLogiDto | undefined;
   imagePreview: string;
 
-  constructor(private accoutService: AccountService, private formBuilder: FormBuilder) { 
+  constructor(private accoutService: AccountService, private formBuilder: FormBuilder, private userEditService: UserEditService) { 
     // this.accoutService.user.pipe(take(1)).subscribe(user => this.user = user);
     this.imagePreview = "";
     this.profileForm = this.formBuilder.group({
@@ -51,6 +54,15 @@ export class UserSettingsComponent implements OnInit {
   onSubmit() {
     if (this.profileForm.valid) {
       // Process form data (e.g., send to backend)
+      const dto: UserEditSettingsDto =
+      {
+        email: "test@test",
+        password: "test",
+        username: "test"
+
+      };
+      
+      this.userEditService.update(dto, "F7EDF6EF-899A-454B-9696-866E690E5B0A");
       console.log(this.profileForm.value);
     } else {
       // Handle form validation errors
