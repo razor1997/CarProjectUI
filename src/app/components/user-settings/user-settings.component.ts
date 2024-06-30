@@ -21,10 +21,10 @@ export class UserSettingsComponent implements OnInit {
     this.imagePreview = "";
     this.profileForm = this.formBuilder.group({
       profileImage: [''], // Placeholder for profile image
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.minLength(6)],
-      confirmPassword: ['', Validators.required]    
+      name: ['asdasd', Validators.required],
+      email: ['aaa@fff', [Validators.required, Validators.email]],
+      password: ['123456', Validators.minLength(6)],
+      confirmPassword: ['123456', Validators.required]    
     },
   {
     validators: this.customPasswordMatching.bind(this)
@@ -62,8 +62,8 @@ export class UserSettingsComponent implements OnInit {
 
       };
       
-      this.userEditService.update(dto, "F7EDF6EF-899A-454B-9696-866E690E5B0A");
-      console.log(this.profileForm.value);
+      this.userEditService.update(dto, "F7EDF6EF-899A-454B-9696-866E690E5B0A").subscribe(x => dto);
+      console.log(dto);
     } else {
       // Handle form validation errors
       console.log('Form is invalid');
