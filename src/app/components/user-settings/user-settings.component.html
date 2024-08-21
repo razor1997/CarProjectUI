@@ -6,8 +6,8 @@
         <input type="file" id="profileImage" formControlName="profileImage">
     </div>
     <div class="field">
-        <label for="name">Name:</label>
-        <input type="text" id="name" formControlName="name">
+        <label for="username">Name:</label>
+        <input type="text" id="username" formControlName="username">
     </div>
     <div class="field">
         <label for="email">Email:</label>
@@ -22,8 +22,8 @@
         <input type="password" id="confirmPassword" formControlName="confirmPassword">
     </div>
     <!-- Display error message for 'name' field -->
-    <div *ngIf="profileForm.get('name')?.invalid && profileForm.get('name')?.touched">
-        <small *ngIf="profileForm.get('name')?.errors?.required">Name is required</small>
+    <div *ngIf="profileForm.get('username')?.invalid && profileForm.get('username')?.touched">
+        <small *ngIf="profileForm.get('username')?.errors?.required">Name is required</small>
     </div>
 
     <!-- Display error message for 'email' field -->

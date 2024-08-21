@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {  AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { UserForLogiDto } from 'src/app/models/user-for-login-dto';
 import { GUID } from 'src/app/models/user-vehicle-add-dto';
@@ -21,10 +21,10 @@ export class UserSettingsComponent implements OnInit {
     this.imagePreview = "";
     this.profileForm = this.formBuilder.group({
       profileImage: [''], // Placeholder for profile image
-      name: ['asdasd', Validators.required],
-      email: ['aaa@fff', [Validators.required, Validators.email]],
-      password: ['123456', Validators.minLength(6)],
-      confirmPassword: ['123456', Validators.required]    
+      username: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.minLength(6)],
+      confirmPassword: ['', Validators.required]    
     },
   {
     validators: this.customPasswordMatching.bind(this)
@@ -56,9 +56,9 @@ export class UserSettingsComponent implements OnInit {
       // Process form data (e.g., send to backend)
       const dto: UserEditSettingsDto =
       {
-        email: "test@test",
-        password: "test",
-        username: "test"
+        email: this.profileForm.controls.username.value,
+        password: this.profileForm.controls.password.value,
+        username: this.profileForm.controls.username.value
 
       };
       
