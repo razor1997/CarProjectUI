@@ -1,45 +1,44 @@
-import { NgFor } from '@angular/common';
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import {
-  CarouselCaptionComponent,
-  CarouselComponent,
-  CarouselControlComponent,
-  CarouselIndicatorsComponent,
-  CarouselInnerComponent,
-  CarouselItemComponent,
-  ThemeDirective
-} from '@coreui/angular';
+import { Component, Input, OnInit } from '@angular/core';
 
+interface sliderImage {
+  id: number;
+  imageSrc: string;
+  imageAlt: string;
+}
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
-  styleUrls: ['./slider.component.css'],
-  standalone: true,
-  imports: [ThemeDirective, CarouselComponent, CarouselIndicatorsComponent, CarouselInnerComponent, NgFor, CarouselItemComponent, CarouselCaptionComponent, CarouselControlComponent, RouterLink]
-
+  styleUrls: ['./slider.component.css']
 })
-export class SliderComponent {
-  slides: any[] = new Array(3).fill({ id: -1, src: '', title: '', subtitle: '' });
-
+export class SliderComponent implements OnInit {
+  @Input() images: sliderImage[] = []
+  @Input() indicators = true
+  @Input() controls = true;
+  selectedIndex = 0;
   ngOnInit(): void {
-    this.slides[0] = {
-      id: 0,
-      src: './assets/carsImages/e60.jpg',
-      title: 'First slide',
-      subtitle: 'Nulla vitae elit libero, a pharetra augue mollis interdum.'
-    };
-    this.slides[1] = {
-      id: 1,
-      src: './assets/carsImages/m8.jpg',
-      title: 'Second slide',
-      subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-    };
-    this.slides[2] = {
-      id: 2,
-      src: './assets/carsImages/m4.jpg',
-      title: 'Third slide',
-      subtitle: 'Praesent commodo cursus magna, vel scelerisque nisl consectetur.'
-    };
+  
+  }
+
+  selectIndex(index: number): void{
+    this.selectedIndex = index;
+  }
+  onPrevClick(): void{
+    if(this.selectedIndex === 0)
+    {
+      this.selectedIndex = this.images.length - 1;
+    }
+    else{
+      this.selectedIndex--;
+    }
+  }
+
+  onNextClick(): void{
+    if(this.selectedIndex === this.images.length - 1)
+    {
+      this.selectedIndex = 0;
+    }
+    else{
+      this.selectedIndex++;
+    }
   }
 }

@@ -1,19 +1,26 @@
-<c-carousel>
-    <c-carousel-indicators></c-carousel-indicators>
-    <c-carousel-inner>
-      <c-carousel-item *ngFor="let slide of slides">
-        <img
-          alt="{{slide.title}}"
-          class="d-block w-100"
-          loading="lazy"
-          src="{{slide.src}}"
-        />
-        <c-carousel-caption class="d-none d-md-block">
-          <h3>{{slide.title}}</h3>
-          <p>{{slide.subtitle}}</p>
-        </c-carousel-caption>
-      </c-carousel-item>
-    </c-carousel-inner>
-    <c-carousel-control [routerLink] caption="Previous" direction="prev"></c-carousel-control>
-    <c-carousel-control [routerLink] caption="Next" direction="next"></c-carousel-control>
-  </c-carousel>
+<div *ngIf="images && images.length > 0" class="slider-container">
+    <img title="image" *ngFor="let image of images; let i = index"
+        [src]="image.imageSrc" [alt]="image.imageAlt"
+        [ngClass]="{'image-active': selectedIndex === i}"
+       
+    >
+    <div *ngIf="indicators" class="slider-dot-container">
+        <span *ngFor="let dot of images; let i = index" 
+        class="dot"
+        [ngClass]="{'active': selectedIndex === i}"
+        (click)="selectIndex(i)"
+        >
+
+        </span>
+    </div>
+    <button type="button" title="prevImage" *ngIf="controls" class="btn-slider btn-prev">
+        <i class="fas fa-arrow-circle-left icon-slider icon-prev"
+            (click)="onPrevClick()"
+        ></i>
+    </button>
+    <button type="button" title="nextImage" *ngIf="controls" class="btn-slider btn-next">
+        <i class="fas fa-arrow-circle-right icon-slider icon-next"
+            (click)="onNextClick()"
+        ></i>
+    </button>
+</div>

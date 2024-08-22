@@ -22,17 +22,16 @@
     "@angular/router": "^16.2.0",
     "@auth0/angular-jwt": "^5.2.0",
     "@auth0/auth0-angular": "^2.2.3",
-    "@coreui/angular": "^5.2.13",
     "@coreui/coreui": "^5.1.1",
     "@coreui/icons-angular": "^5.2.13",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
+    "carousel": "^0.0.3",
     "dropdown-menu": "^0.1.1",
     "jquery": "^3.7.1",
     "popper.js": "^1.16.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "ng2-material-dropdown": "^0.11.0",
     "zone.js": "~0.13.0"
   },
   "devDependencies": {

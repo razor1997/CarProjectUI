@@ -18,7 +18,7 @@ import { addVehicleComponent } from './components/add-vehicle/add-vehicle.compon
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 import { FooterComponent } from './footer/footer.component';
-import { SliderComponent } from './gallery/sliders/slider/slider.component';
+import { SliderModule } from './gallery/sliders/slider/slider.module';
 
 @NgModule({
   declarations: [
@@ -40,7 +40,7 @@ import { SliderComponent } from './gallery/sliders/slider/slider.component';
     ReactiveFormsModule,
     MatTooltipModule,
     CommonModule,
-    SliderComponent,
+    SliderModule,
     RouterModule.forChild([
       { path: 'authentication', loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule) },
     ])
