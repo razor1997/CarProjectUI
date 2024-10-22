@@ -26,9 +26,9 @@
     <div>
     </div>
       <div *ngIf="getUserIsAuthenticated() === true">
-        <mat-form-field appearance="fill">
+        <mat-form-field>
           <mat-label>Ustawienia użytkownika</mat-label>
-          <mat-select (selectionChange)="onSelectionChange($event)">
+          <mat-select (selectionChange)="onSelectionChange($event)" >
             <mat-option value="addVehicle">Dodaj pojazd</mat-option>
             <mat-option value="userSettings">Ustawienia użytkownika</mat-option>
             <mat-option value="logout" >Wyloguj</mat-option>
