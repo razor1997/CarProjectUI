@@ -1,0 +1,10 @@
+body{
+    width: 300px;
+}
+.form {
+    display: grid;
+    justify-content: center;
+    /* align-items: center;
+    flex-direction: column; */
+    width: auto;
+  }

@@ -17,6 +17,9 @@
                 </div>
             </div>
             <div class="mb-3">
+                <div *ngIf="showError"> 
+                    <label class="Invalid" style="color: crimson;">Invalid user or password</label>
+                </div>
                 <div>      
                     <label class="checkbox" >Remember me</label>
                     <input type="checkbox" aria-label="lorem ipsum" formControlName="rememberMe" class="checkbox">

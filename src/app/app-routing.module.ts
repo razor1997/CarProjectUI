@@ -6,6 +6,8 @@ import { UserSettingsComponent } from './components/user-settings/user-settings.
 import { UserCarsComponent } from './components/user-cars/user-cars.component';
 import { addVehicleComponent } from './components/add-vehicle/add-vehicle.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
+import { FindVehicleComponent } from './components/find-vehicle/find-vehicle.component';
+import { FindVehicleListComponent } from './components/find-vehicle-list/find-vehicle-list.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -13,7 +15,9 @@ const routes: Routes = [
   { path: 'login', component: LoginUserComponent }, 
   {path: 'userSettings', component: UserSettingsComponent},
   {path: 'userCars', component: UserCarsComponent},
-  {path: 'addVehicle', component: addVehicleComponent}
+  {path: 'addVehicle', component: addVehicleComponent},
+  {path: 'findVehicle', component: FindVehicleComponent},
+  {path: 'findVehicleList', component: FindVehicleListComponent}
 
 ];
 

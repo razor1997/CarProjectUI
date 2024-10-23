@@ -39,6 +39,10 @@ export class LoginUserComponent implements OnInit{
     });
 }
 get f() { return this.form.controls; }
+get getErrorMessage()
+{
+  return this.errorMessage;
+}
 
 public onSubmit = () => {
   this.warningService.clear();
@@ -63,7 +67,9 @@ public onSubmit = () => {
         this.accountService.setUserId(res.userId)
       },
       error: error => {
-         this.errorMessage = error.message;
+        this.showError = true;
+         this.errorMessage = error.error.errorMessage;
+         console.log(this.errorMessage)
           this.loading = false;
       }
     })
