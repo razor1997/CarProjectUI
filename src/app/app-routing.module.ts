@@ -8,8 +8,15 @@ import { addVehicleComponent } from './components/add-vehicle/add-vehicle.compon
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { FindVehicleComponent } from './components/find-vehicle/find-vehicle.component';
 import { FindVehicleListComponent } from './components/find-vehicle-list/find-vehicle-list.component';
+import { HomeComponent } from './public/home/home.component';
+import { BlogpostListComponent } from './components/blog-post/blogpost-list/blogpost-list.component';
+import { AddBlogpostComponent } from './components/blog-post/add-blogpost/add-blogpost.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent
+  },
   { path: '', component: HomepageComponent },
   { path: 'register', component: RegisterUserComponent },
   { path: 'login', component: LoginUserComponent }, 
@@ -17,8 +24,14 @@ const routes: Routes = [
   {path: 'userCars', component: UserCarsComponent},
   {path: 'addVehicle', component: addVehicleComponent},
   {path: 'findVehicle', component: FindVehicleComponent},
-  {path: 'findVehicleList', component: FindVehicleListComponent}
-
+  {path: 'findVehicleList', component: FindVehicleListComponent},
+  {path: 'admin/blogposts',
+    component: BlogpostListComponent
+  },
+  {
+    path: 'admin/blogposts/add',
+    component: AddBlogpostComponent
+  }
 ];
 
 @NgModule({

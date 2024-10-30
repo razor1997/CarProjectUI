@@ -21,6 +21,9 @@ import { FooterComponent } from './footer/footer.component';
 import { SliderModule } from './gallery/sliders/slider/slider.module';
 import { FindVehicleComponent } from './components/find-vehicle/find-vehicle.component';
 import { FindVehicleListComponent } from './components/find-vehicle-list/find-vehicle-list.component';
+import { HomeComponent } from './public/home/home.component';
+import { BlogpostListComponent } from './components/blog-post/blogpost-list/blogpost-list.component';
+import { AddBlogpostComponent } from './components/blog-post/add-blogpost/add-blogpost.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { FindVehicleListComponent } from './components/find-vehicle-list/find-ve
     HomepageComponent,
     FooterComponent,
     FindVehicleComponent,
-    FindVehicleListComponent
+    FindVehicleListComponent,
+    HomeComponent,
+    BlogpostListComponent,
+    AddBlogpostComponent
   ],
   imports: [
     HttpClientModule,

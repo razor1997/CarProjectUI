@@ -18,7 +18,10 @@
             </li> 
             <li class="nav-item">
               <a class="nav-link" [routerLink]="['/findVehicle']">Szukaj auta</a>
-            </li>            
+            </li>        
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/admin/blogposts']">Artykuły</a>
+            </li>                 
           </ul>
         </div>
       </ul>
@@ -31,6 +34,7 @@
           <mat-select (selectionChange)="onSelectionChange($event)" >
             <mat-option value="addVehicle">Dodaj pojazd</mat-option>
             <mat-option value="userSettings">Ustawienia użytkownika</mat-option>
+            <mat-option value="admin/blogposts/add">Dodaj artykuł</mat-option>
             <mat-option value="logout" >Wyloguj</mat-option>
           </mat-select>
         </mat-form-field>
