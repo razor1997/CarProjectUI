@@ -8,4 +8,5 @@ export interface BlogPost{
     author: string;
     publishedDate: Date;
     isVisible: boolean;
+    // categories: Category[];
 }

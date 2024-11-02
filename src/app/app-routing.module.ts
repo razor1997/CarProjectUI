@@ -11,6 +11,8 @@ import { FindVehicleListComponent } from './components/find-vehicle-list/find-ve
 import { HomeComponent } from './public/home/home.component';
 import { BlogpostListComponent } from './components/blog-post/blogpost-list/blogpost-list.component';
 import { AddBlogpostComponent } from './components/blog-post/add-blogpost/add-blogpost.component';
+import { CategoryListComponent } from './components/category/category-list/category-list.component';
+import { AddCategoryComponent } from './components/category/add-category/add-category.component';
 
 const routes: Routes = [
   {
@@ -31,7 +33,9 @@ const routes: Routes = [
   {
     path: 'admin/blogposts/add',
     component: AddBlogpostComponent
-  }
+  },
+  {path: 'admin/categories', component: CategoryListComponent},
+  {path: 'admin/addCategories', component: AddCategoryComponent}
 ];
 
 @NgModule({

@@ -6,12 +6,15 @@
         <div *ngIf="getUserIsAuthenticated() === false">
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['/login']">Zaloguj</a>
-          </li> 
+          </li>                 
         </div>
         <div *ngIf="getUserIsAuthenticated() === true">      
           <ul class="navbar-nav  me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="#">Aktualności</a>
+              <a class="nav-link" [routerLink]="['/admin/blogposts']">Artykuły</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/admin/categories']">Kategorie</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" [routerLink]="['/userCars']">Auta użytkowników</a>
@@ -19,9 +22,6 @@
             <li class="nav-item">
               <a class="nav-link" [routerLink]="['/findVehicle']">Szukaj auta</a>
             </li>        
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/admin/blogposts']">Artykuły</a>
-            </li>                 
           </ul>
         </div>
       </ul>

@@ -27,6 +27,13 @@
   
         <div class="mt-3">
             <label for="featuredImageUrl" class="form-label">Url zdjęcia</label>
+            <ng-container *ngIf="model.featuredImageUrl !== ''">
+                <div>
+                    <img [src]="model.featuredImageUrl" height="100" class="my-2" alt="scr">
+                </div>
+            </ng-container>
+
+
             <input type="text"
             id="featuredImageUrl"
             name="featuredImageUrl"
