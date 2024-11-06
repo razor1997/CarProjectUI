@@ -1,5 +1,6 @@
 <div class="container">
-    <h1 class="mt-3">Dodaj artykuł</h1>
+    <h1 class="mt-3">Edytuj artykuł</h1>
+    <ng-container *ngIf="model" >
     <form #form="ngForm" (ngSubmit)="onFormSubmit()">
         <div class="mt-3">
             <label for="title" class="form-label">Tytuł</label>
@@ -72,7 +73,7 @@
       <div class="mt-3">        
         <label for="categories" class="form-label">Kategorie</label>
         <ng-container *ngIf="categories$ | async as categories">
-            <select class="form-control" [(ngModel)] = "model.categories" name="categories"
+            <select class="form-control" [(ngModel)] = "selectedCategories" name="categories"
             id="categories">
             <option *ngFor="let category of categories" [value]="category.id" multiple>
                 {{category.name}}
@@ -84,4 +85,5 @@
         <button type="submit" class="btn btn-primary">Zapisz</button>
       </div>
     </form>
+</ng-container>
 </div>

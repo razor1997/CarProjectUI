@@ -26,6 +26,7 @@ import { BlogpostListComponent } from './components/blog-post/blogpost-list/blog
 import { AddBlogpostComponent } from './components/blog-post/add-blogpost/add-blogpost.component';
 import { CategoryListComponent } from './components/category/category-list/category-list.component';
 import { AddCategoryComponent } from './components/category/add-category/add-category.component';
+import { EditBlogPostComponent } from './components/blog-post/edit-blog-post/edit-blog-post.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { AddCategoryComponent } from './components/category/add-category/add-cat
     BlogpostListComponent,
     AddBlogpostComponent,
     CategoryListComponent,
-    AddCategoryComponent
+    AddCategoryComponent,
+    EditBlogPostComponent
   ],
   imports: [
     HttpClientModule,
