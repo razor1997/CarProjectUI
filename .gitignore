@@ -43,3 +43,4 @@ Thumbs.db
 src/assets/carsImages/audi_r8.jpg
 src/assets/carsImages/m4.jpg
 src/assets/carsImages/nissan_gtr.jpg
+src/app/Secrets/secretKey.ts

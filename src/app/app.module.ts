@@ -27,6 +27,7 @@ import { AddBlogpostComponent } from './components/blog-post/add-blogpost/add-bl
 import { CategoryListComponent } from './components/category/category-list/category-list.component';
 import { AddCategoryComponent } from './components/category/add-category/add-category.component';
 import { EditBlogPostComponent } from './components/blog-post/edit-blog-post/edit-blog-post.component';
+import { AidevsUiComponent } from './AIDevs_3/aidevs-ui/aidevs-ui.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { EditBlogPostComponent } from './components/blog-post/edit-blog-post/edi
     AddBlogpostComponent,
     CategoryListComponent,
     AddCategoryComponent,
-    EditBlogPostComponent
+    EditBlogPostComponent,
+    AidevsUiComponent
   ],
   imports: [
     HttpClientModule,

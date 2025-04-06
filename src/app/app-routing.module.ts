@@ -14,6 +14,7 @@ import { AddBlogpostComponent } from './components/blog-post/add-blogpost/add-bl
 import { CategoryListComponent } from './components/category/category-list/category-list.component';
 import { AddCategoryComponent } from './components/category/add-category/add-category.component';
 import { EditBlogPostComponent } from './components/blog-post/edit-blog-post/edit-blog-post.component';
+import { AidevsUiComponent } from './AIDevs_3/aidevs-ui/aidevs-ui.component';
 
 const routes: Routes = [
   {
@@ -37,7 +38,8 @@ const routes: Routes = [
   },
   {path: 'admin/categories', component: CategoryListComponent},
   {path: 'admin/addCategories', component: AddCategoryComponent},
-  {path: 'admin/blogposts/:id', component: EditBlogPostComponent}
+  {path: 'admin/blogposts/:id', component: EditBlogPostComponent},
+  {path: 'admin/aidevs', component: AidevsUiComponent}
 ];
 
 @NgModule({

@@ -6,21 +6,21 @@
       "name": "Launch Edge",
       "request": "launch",
       "type": "msedge",
-      "url": "http://localhost:8080",
+      "url": "http://localhost:4200",
       "webRoot": "${workspaceFolder}"
     },
     {
       "type": "firefox",
       "request": "attach",
-      "name": "Attach"
+      "name": "Attach",
+      "url": "http://localhost:4200",
     },
     
     {
       "name": "Launch Chrome",
       "request": "launch",
       "type": "chrome",
-      "url": "http://localhost:4200",
-      "webRoot": "${workspaceFolder}"
+      "url": "http://localhost:4200"
     },
 
     {
